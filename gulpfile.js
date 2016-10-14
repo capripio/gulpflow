@@ -1,4 +1,4 @@
-var env = "development";
+var env = "development"; //it can be anything but same folder is need in builds dir.
 var gulp =      require('gulp'),
     ts  =       require('gulp-typescript'),
     contact =   require('gulp-concat'),
