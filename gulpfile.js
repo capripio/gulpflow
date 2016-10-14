@@ -1,6 +1,5 @@
-var env = "development"; //production or development
+var env = "production"; //production or development
 var gulp =      require('gulp'),
-    ts  =       require('gulp-typescript'),
     contact =   require('gulp-concat'),
     sass =      require('gulp-sass'),
     livereload = require('gulp-livereload'),
@@ -8,21 +7,14 @@ var gulp =      require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     minify =    require('gulp-minify'),
     cssmin =    require('gulp-cssmin'),
+    babel = require('gulp-babel'),
     gif =    require('gulp-if');
 
-var tsSources = ['./components/typescript/**/*.ts'];
 var jsSoruces = ['./components/scripts/**/*.js'];
 var sassSources = ['./components/scss/**/*.scss'];
 var cssSources = ['./components/styles/**/*.css'];
 var htmlSoruces = ['./builds/'+env+'/**/*.html']
 
-gulp.task('typescript',function(){
-    gulp.src(tsSources)
-    .pipe(sourcemaps.init())
-    .pipe(ts())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./components/scripts/'))
-});
 
 var is_production = function(){
     return env === 'production'?true:false;
@@ -33,7 +25,8 @@ var is_development = function(){
 }
 gulp.task('js',function(){
     gulp.src(jsSoruces)
-    .pipe(sourcemaps.init())
+    .pipe(gif(is_development,sourcemaps.init()))
+    .pipe(babel({presets: ['es2015']}))
     .pipe(contact('scripts.js'))
     .pipe(gif(is_production,minify({
         noSource:true,
@@ -41,7 +34,7 @@ gulp.task('js',function(){
             min:'.js'
         }
     })))
-    .pipe(sourcemaps.write())
+    .pipe(gif(is_development,sourcemaps.write()))
     .pipe(gulp.dest('./builds/'+env+'/js/'))
     .pipe(livereload());
 });
@@ -72,7 +65,6 @@ gulp.task('html',function(){
 
 gulp.task('watch',function(){
     livereload.listen();
-    gulp.watch(tsSources,['typescript']);
     gulp.watch(jsSoruces,['js']);
     gulp.watch(sassSources,['sass']);
     gulp.watch(cssSources,['style']);
@@ -80,4 +72,4 @@ gulp.task('watch',function(){
 
 });
 
-gulp.task('default',['html','typescript','js','sass','style','watch']);
+gulp.task('default',['html','js','sass','style','watch']);

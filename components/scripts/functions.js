@@ -1,3 +1,13 @@
-var sample = function(){
-  console.log('This is Sample');
+class Person{
+  constructor(name = 'Salman'){
+    this.name = name;
+  }
+
+  greet(){
+    alert(`Hello, ${this.name}`);
+  }
 }
+
+
+let pr = new Person('Asif');
+pr.greet();
