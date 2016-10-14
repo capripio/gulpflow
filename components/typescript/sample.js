@@ -1,9 +1,10 @@
-var Sample = (function () {
-    function Sample() {
+var Person = (function () {
+    function Person(name) {
+        this.person_name = name;
     }
-    Sample.prototype.construct = function (val) {
-        this.val = val;
-        this.inc = val + 'a';
+    Person.prototype.greet = function () {
+        alert(this.person_name + ", Hello!");
     };
-    return Sample;
+    return Person;
 }());
+var person = new Person("Mirza");

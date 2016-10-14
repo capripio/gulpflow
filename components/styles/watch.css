@@ -1,8 +1,13 @@
 .button {
+  /*test*/
   padding: 20px;
+  text-align: center;
+  color: orange;
   text-align: center;
 }
 
 .button.round {
   border-radius: 2px;
 }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2F0Y2guY3NzIiwic291cmNlcyI6WyJ3YXRjaC5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIi5idXR0b257XG4gICYucm91bmR7XG4gICAgYm9yZGVyLXJhZGl1czogMnB4O1xuICB9XG4gIC8qdGVzdCovXG4gIHBhZGRpbmc6MjBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBjb2xvcjpvcmFuZ2U7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbiJdLCJtYXBwaW5ncyI6IkFBQUEsQUFBQSxPQUFPLENBQUE7RUFJTCxRQUFRO0VBQ1IsT0FBTyxFQUFDLElBQUs7RUFDYixVQUFVLEVBQUUsTUFBTztFQUNuQixLQUFLLEVBQUMsTUFBTztFQUNiLFVBQVUsRUFBRSxNQUFPO0NBQ3BCOztBQVRELEFBQUEsT0FBTyxBQUNKLE1BQU0sQ0FBQTtFQUNMLGFBQWEsRUFBRSxHQUFJO0NBQ3BCIiwibmFtZXMiOltdfQ== */
